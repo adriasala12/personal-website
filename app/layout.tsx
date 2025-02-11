@@ -83,9 +83,7 @@ export default function RootLayout({
           />
         </nav>
 
-        <main className="h-screen overflow-y-scroll snap-both snap-mandatory">
-          {children}
-        </main>
+        {children}
       </body>
     </html>
   );
