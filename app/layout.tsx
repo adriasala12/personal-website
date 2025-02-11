@@ -71,14 +71,19 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${poppins.className} flex flex-col items-center min-h-screen p-16 md:p-24 antialiased bg-black bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:16px_16px]`}
+        className={`${poppins.className} antialiased bg-black bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:16px_16px]`}
       >
-        <FloatingDock
-          desktopClassName={cn('gap-8 ')}
-          mobileClassName={cn('fixed bottom-0 left-0 mb-4 ml-4')}
-          items={NAVIGATION_ITEMS}
-        />
-        <main className="flex flex-col md:flex-row flex-grow items-center w-full max-w-screen-2xl justify-between">
+        <nav>
+          <FloatingDock
+            desktopClassName={cn(
+              'gap-8 fixed top-28 left-1/2 transform -translate-x-1/2',
+            )}
+            mobileClassName={cn('fixed bottom-0 left-0 mb-4 ml-4')}
+            items={NAVIGATION_ITEMS}
+          />
+        </nav>
+
+        <main className="h-screen overflow-y-scroll snap-both snap-mandatory">
           {children}
         </main>
       </body>
