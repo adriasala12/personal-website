@@ -76,7 +76,7 @@ export default function RootLayout({
         <nav>
           <FloatingDock
             desktopClassName={cn(
-              'gap-8 fixed top-28 left-1/2 transform -translate-x-1/2',
+              'gap-8 fixed z-10 top-28 left-1/2 transform -translate-x-1/2',
             )}
             mobileClassName={cn('fixed bottom-0 left-0 mb-4 ml-4')}
             items={NAVIGATION_ITEMS}
