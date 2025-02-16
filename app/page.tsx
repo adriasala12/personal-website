@@ -1,10 +1,11 @@
 'use client';
 
-import HomePage from '@/components/HomePage';
+import ExperiencePage from '@/components/pages/ExperiencePage/ExperiencePage';
+import HomePage from '@/components/pages/HomePage';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
-const SECTIONS = [HomePage, HomePage, HomePage];
+const SECTIONS = [HomePage, ExperiencePage, HomePage];
 
 export default function Home() {
   const containerRef = useRef(null);

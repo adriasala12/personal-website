@@ -4,6 +4,8 @@
  * Mobile navbar is better positioned at bottom right.
  **/
 
+// https://ui.aceternity.com/components/floating-dock
+
 'use client';
 
 import { cn } from '@/lib/utils';
