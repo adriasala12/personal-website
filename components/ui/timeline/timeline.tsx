@@ -2,12 +2,9 @@
 
 'use client';
 
-import {
-  type ITimelineContentProps,
-  TimelineContent,
-} from '@/components/pages/ExperiencePage/experience';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import { type ITimelineContentProps, TimelineContent } from './TimelineContent';
 
 export interface ITimelineEntry {
   date: string;
