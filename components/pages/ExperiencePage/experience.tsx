@@ -1,290 +1,210 @@
-import { WrenchScrewdriverIcon } from '@heroicons/react/24/outline';
+import type { ITimelineEntry } from '@/components/ui/timeline';
 import {
+  BugAntIcon,
   CloudIcon,
-  CodeBracketSquareIcon,
-  CogIcon,
-  ServerStackIcon,
+  CodeBracketIcon,
+  ServerIcon,
 } from '@heroicons/react/24/solid';
-import { DatabaseIcon } from 'lucide-react';
 import type React from 'react';
 
-export interface IExperience {
-  date: string;
+export interface ITimelineContentProps {
   title: string;
   company: string;
+  experienceList: IExperienceItem[];
+  techStack?: string[];
+}
+
+interface IExperienceItem {
+  icon: typeof CloudIcon;
   content: React.ReactNode;
 }
 
-const experience: IExperience[] = [
+export const TimelineContent = ({
+  experience,
+}: { experience: ITimelineContentProps }) => (
+  <>
+    <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-6 bg-gradient-to-r from-violet-500 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent">
+      {experience.title}
+    </h2>
+    <h3 className="text-lg mb-6 md:mb-10 md:text-3xl font-bold text-neutral-300 dark:text-neutral-400 ">
+      @ {experience.company}
+    </h3>
+
+    {/* Experience List */}
+    <div className="mt-6">
+      <h5 className="text-lg font-bold text-gray-800 dark:text-gray-300 mb-3">
+        Key Responsibilities:
+      </h5>
+      <ul className="text-gray-700 dark:text-gray-300 space-y-4">
+        {experience.experienceList.map((item, index) => (
+          <li key={`${index}-${experience.title}`} className="flex gap-x-2">
+            <item.icon className="w-5 h-5 flex-shrink-0" />
+            {item.content}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {/* Tech Stack */}
+    {experience.techStack && (
+      <div className="mt-6">
+        <h5 className="text-lg font-bold text-gray-800 dark:text-gray-300 mb-3">
+          Tech Stack:
+        </h5>
+        <div className="flex flex-wrap gap-2">
+          {experience.techStack.map((tech) => (
+            <span
+              key={tech}
+              className="px-3 py-1 text-xs font-semibold bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-300 rounded-full"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    )}
+  </>
+);
+
+const experience: ITimelineEntry[] = [
   {
     date: 'Current',
-    title: 'Full Stack JS/TS Cloud Software Developer',
-    company: 'HP Inc.',
-    content: (
-      <>
-        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-4">
-          <li className="flex items-center gap-x-2">
-            <CloudIcon className="h-5 w-5 text-neutral-300" />
+    subDate: '(Since Feb 2022)',
+    timelineContent: {
+      title: 'Full Stack JS/TS Cloud Software Developer',
+      company: 'HP Inc.',
+      experienceList: [
+        {
+          icon: CloudIcon,
+          content: (
             <span>
-              Worked in a{' '}
-              <strong>microservices cloud-based architecture</strong>, handling
-              <strong> high availability</strong> and
-              <strong> scalable solutions</strong>.
+              Working in a{' '}
+              <strong>microservices cloud-based architecture</strong>, I engaged
+              in a wide range of development tasks, including functionality
+              definition, implementation, and testing, both in the backend and
+              frontend.
             </span>
-          </li>
-
-          <li className="flex items-center gap-x-2">
-            <CodeBracketSquareIcon className="h-5 w-5 text-neutral-300" />
+          ),
+        },
+        {
+          icon: CodeBracketIcon,
+          content: (
             <span>
-              Led <strong>major refactors</strong> &{' '}
-              <strong>performance improvements</strong>, critical for{' '}
-              <strong>high system load periods</strong>.
+              Led <strong>significant code refactors</strong> critical to the
+              company, along with crucial performance improvements that proved
+              essential during periods of high system load.
             </span>
-          </li>
-
-          <li className="flex items-center gap-x-2">
-            <ServerStackIcon className="h-5 w-5 text-neutral-300" />
+          ),
+        },
+        {
+          icon: ServerIcon,
+          content: (
             <span>
-              <strong>SRE tasks</strong>: Monitoring, health checks, automatic
-              retries, and enhanced <strong>observability</strong> using{' '}
-              <strong>NewRelic, Sentry, Grafana</strong>.
+              Performed <strong>SRE tasks</strong> like general monitoring,
+              implementing health checks, and automatic retries for our
+              microservices, enhancing observability with{' '}
+              <strong>NewRelic, Sentry, and Grafana</strong>.
             </span>
-          </li>
-
-          <li className="flex items-center gap-x-2">
-            <CogIcon className="h-5 w-5 text-neutral-300" />
+          ),
+        },
+        {
+          icon: BugAntIcon,
+          content: (
             <span>
-              Integrated with <strong>third-party APIs</strong>, primarily
-              shipping carriers, streamlining operational efficiency.
+              Periodically handled{' '}
+              <strong>customer requests and bug fixing</strong>, collaborating
+              with the Customer Support team to resolve issues efficiently.
             </span>
-          </li>
-
-          <li className="flex items-center gap-x-2">
-            <DatabaseIcon className="h-5 w-5 text-neutral-300" />
+          ),
+        },
+        {
+          icon: ServerIcon,
+          content: (
             <span>
-              Maintained and migrated a{' '}
-              <strong>TypeScript-based internal framework</strong>
-              for <strong>Node.js APIs & messaging systems</strong>.
+              Experience integrating with <strong>third-party services</strong>,
+              primarily shipping carriers, both directly and through third-party
+              integrations.
             </span>
-          </li>
-
-          <li className="flex items-center gap-x-2">
-            <WrenchScrewdriverIcon className="h-5 w-5 text-neutral-300" />
+          ),
+        },
+        {
+          icon: ServerIcon,
+          content: (
             <span>
-              Provided <strong>customer support & bug fixes</strong>,
-              collaborating with the <strong>Customer Support team</strong>.
+              Maintained our internal{' '}
+              <strong>TypeScript-based framework</strong> for Node.js APIs and
+              messaging-based systems, and led the migration of our main legacy
+              API from scratch to this new framework.
             </span>
-          </li>
-        </ul>
-
-        {/* Tech Stack */}
-        <div className="mt-6">
-          <h5 className="text-lg font-semibold text-gray-800 dark:text-gray-300 mb-3">
-            Tech Stack:
-          </h5>
-          <div className="flex flex-wrap gap-2">
-            {[
-              'JavaScript',
-              'TypeScript',
-              'Node.js',
-              'HTML/CSS',
-              'MongoDB',
-              'Vue.js',
-              'AWS',
-              'SQL',
-              'Docker',
-              'RabbitMQ',
-            ].map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 text-xs font-semibold bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-300 rounded-full"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      </>
-    ),
+          ),
+        },
+      ],
+      techStack: [
+        'JavaScript',
+        'TypeScript',
+        'Node.js',
+        'HTML/CSS',
+        'AWS',
+        'MongoDB',
+        'Vue.js',
+        'SQL',
+        'Docker',
+        'RabbitMQ',
+      ],
+    },
   },
   {
     date: 'December 2020',
-    title: 'Full Stack .NET Software Developer',
-    company: 'L-mobile solutions GmbH & Co. KG EP España',
-    content: (
-      <>
-        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-4">
-          <li className="flex items-center gap-x-2">
-            <CloudIcon className="h-5 w-5 text-neutral-300" />
+    subDate: '(Until Jan 2022)',
+    timelineContent: {
+      title: 'Full Stack .NET Software Developer',
+      company: 'L-mobile Solutions',
+      experienceList: [
+        {
+          icon: CloudIcon,
+          content: (
             <span>
-              Worked in a{' '}
-              <strong>microservices cloud-based architecture</strong>, handling
-              <strong> high availability</strong> and
-              <strong> scalable solutions</strong>.
+              Working in a{' '}
+              <strong>microservices cloud-based architecture</strong>, I engaged
+              in a wide range of development tasks, including functionality
+              definition, implementation, and testing, both in the backend and
+              frontend.
             </span>
-          </li>
-
-          <li className="flex items-center gap-x-2">
-            <CodeBracketSquareIcon className="h-5 w-5 text-neutral-300" />
+          ),
+        },
+        {
+          icon: CodeBracketIcon,
+          content: (
             <span>
-              Led <strong>major refactors</strong> &{' '}
-              <strong>performance improvements</strong>, critical for{' '}
-              <strong>high system load periods</strong>.
+              Led <strong>significant code refactors</strong> critical to the
+              company, along with crucial performance improvements that proved
+              essential during periods of high system load.
             </span>
-          </li>
-
-          <li className="flex items-center gap-x-2">
-            <ServerStackIcon className="h-5 w-5 text-neutral-300" />
+          ),
+        },
+        {
+          icon: ServerIcon,
+          content: (
             <span>
-              <strong>SRE tasks</strong>: Monitoring, health checks, automatic
-              retries, and enhanced <strong>observability</strong> using{' '}
-              <strong>NewRelic, Sentry, Grafana</strong>.
+              Performed <strong>SRE tasks</strong> like general monitoring,
+              implementing health checks, and automatic retries for our
+              microservices, enhancing observability with{' '}
+              <strong>NewRelic, Sentry, and Grafana</strong>.
             </span>
-          </li>
-
-          <li className="flex items-center gap-x-2">
-            <CogIcon className="h-5 w-5 text-neutral-300" />
-            <span>
-              Integrated with <strong>third-party APIs</strong>, primarily
-              shipping carriers, streamlining operational efficiency.
-            </span>
-          </li>
-
-          <li className="flex items-center gap-x-2">
-            <DatabaseIcon className="h-5 w-5 text-neutral-300" />
-            <span>
-              Maintained and migrated a{' '}
-              <strong>TypeScript-based internal framework</strong>
-              for <strong>Node.js APIs & messaging systems</strong>.
-            </span>
-          </li>
-
-          <li className="flex items-center gap-x-2">
-            <WrenchScrewdriverIcon className="h-5 w-5 text-neutral-300" />
-            <span>
-              Provided <strong>customer support & bug fixes</strong>,
-              collaborating with the <strong>Customer Support team</strong>.
-            </span>
-          </li>
-        </ul>
-
-        {/* Tech Stack */}
-        <div className="mt-6">
-          <h5 className="text-lg font-semibold text-gray-800 dark:text-gray-300 mb-3">
-            Tech Stack:
-          </h5>
-          <div className="flex flex-wrap gap-2">
-            {[
-              'C#',
-              'TypeScript',
-              'HTML/CSS',
-              'NodeRed',
-              'Google Firebase',
-              'SQL',
-              'Microsoft SQL Server Manager',
-            ].map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 text-xs font-semibold bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-300 rounded-full"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      </>
-    ),
-  },
-  {
-    date: 'September 2019',
-    title: 'Financial Audit Internship',
-    company: 'Deloitte',
-    content: (
-      <>
-        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-4">
-          <li className="flex items-center gap-x-2">
-            <CloudIcon className="h-5 w-5 text-neutral-300" />
-            <span>
-              Worked in a{' '}
-              <strong>microservices cloud-based architecture</strong>, handling
-              <strong> high availability</strong> and
-              <strong> scalable solutions</strong>.
-            </span>
-          </li>
-
-          <li className="flex items-center gap-x-2">
-            <CodeBracketSquareIcon className="h-5 w-5 text-neutral-300" />
-            <span>
-              Led <strong>major refactors</strong> &{' '}
-              <strong>performance improvements</strong>, critical for{' '}
-              <strong>high system load periods</strong>.
-            </span>
-          </li>
-
-          <li className="flex items-center gap-x-2">
-            <ServerStackIcon className="h-5 w-5 text-neutral-300" />
-            <span>
-              <strong>SRE tasks</strong>: Monitoring, health checks, automatic
-              retries, and enhanced <strong>observability</strong> using{' '}
-              <strong>NewRelic, Sentry, Grafana</strong>.
-            </span>
-          </li>
-
-          <li className="flex items-center gap-x-2">
-            <CogIcon className="h-5 w-5 text-neutral-300" />
-            <span>
-              Integrated with <strong>third-party APIs</strong>, primarily
-              shipping carriers, streamlining operational efficiency.
-            </span>
-          </li>
-
-          <li className="flex items-center gap-x-2">
-            <DatabaseIcon className="h-5 w-5 text-neutral-300" />
-            <span>
-              Maintained and migrated a{' '}
-              <strong>TypeScript-based internal framework</strong>
-              for <strong>Node.js APIs & messaging systems</strong>.
-            </span>
-          </li>
-
-          <li className="flex items-center gap-x-2">
-            <WrenchScrewdriverIcon className="h-5 w-5 text-neutral-300" />
-            <span>
-              Provided <strong>customer support & bug fixes</strong>,
-              collaborating with the <strong>Customer Support team</strong>.
-            </span>
-          </li>
-        </ul>
-
-        {/* Tech Stack */}
-        <div className="mt-6">
-          <h5 className="text-lg font-semibold text-gray-800 dark:text-gray-300 mb-3">
-            Tech Stack:
-          </h5>
-          <div className="flex flex-wrap gap-2">
-            {[
-              'JavaScript',
-              'TypeScript',
-              'Node.js',
-              'HTML/CSS',
-              'MongoDB',
-              'Vue.js',
-              'AWS',
-              'SQL',
-              'Docker',
-              'RabbitMQ',
-            ].map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 text-xs font-semibold bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-300 rounded-full"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      </>
-    ),
+          ),
+        },
+      ],
+      techStack: [
+        'C#',
+        'JavaScript',
+        'TypeScript',
+        'HTML/CSS',
+        "Google's Firebase",
+        'Node-RED',
+        'SQL',
+        'Microsoft SQL Server Manager',
+      ],
+    },
   },
 ];
 

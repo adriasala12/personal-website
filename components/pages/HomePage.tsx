@@ -2,7 +2,7 @@
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col md:flex-row max-w-screen-2xl mx-auto px-10 md:pt-16 items-center">
+    <section className="flex flex-col min-h-screen md:flex-row max-w-screen-2xl mx-auto px-10 pt-8 md:pt-16 items-center">
       <div className="flex flex-[2] items-center justify-center mb-0 md:mb-16 md:pr-24">
         <div>
           <h1 className="text-7xl lg:text-9xl font-bold mb-6 md:mb-12 bg-gradient-to-r from-violet-500 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent">
@@ -32,6 +32,6 @@ export default function HomePage() {
           Your browser does not support the video tag.
         </video>
       </div>
-    </div>
+    </section>
   );
 }
