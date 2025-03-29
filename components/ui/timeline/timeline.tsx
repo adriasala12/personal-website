@@ -35,7 +35,7 @@ export const Timeline = ({ data }: { data: ITimelineEntry[] }) => {
   return (
     <div className="w-full md:px-10" ref={containerRef}>
       <div className="max-w-7xl mx-auto py-8 px-4 md:px-8 lg:px-10">
-        <h2 className="text-4xl pl-6 font-bold text-black dark:text-white max-w-4xl">
+        <h2 className="text-4xl mt-12 ml-4 font-bold mb-2 bg-gradient-to-r from-violet-500 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent max-w-4xl">
           Here's My Experience
         </h2>
       </div>
