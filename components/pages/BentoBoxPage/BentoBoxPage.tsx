@@ -25,7 +25,6 @@ export default function BentoBoxPage() {
               { name: 'Python', icon: '/tech_stack_logos/python.svg' },
               { name: 'Docker', icon: '/tech_stack_logos/docker.svg' },
               { name: 'Swift', icon: '/tech_stack_logos/swift.svg' },
-              { name: 'SQL', icon: '/tech_stack_logos/sql.svg' },
               { name: 'HTML', icon: '/tech_stack_logos/html.svg' },
               { name: 'CSS', icon: '/tech_stack_logos/css.svg' },
             ].map((tech) => (
