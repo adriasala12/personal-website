@@ -1,7 +1,5 @@
-'use client';
-
-import experience from '@/components/pages/ExperiencePage/experience';
-import { Timeline } from '@/components/ui/timeline/timeline';
+import { Timeline } from '../../components/timeline/timeline.tsx';
+import experience from './experience.tsx';
 
 export default function ExperiencePage() {
   return (

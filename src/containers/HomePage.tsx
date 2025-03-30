@@ -1,4 +1,5 @@
-'use client';
+// @ts-ignore
+import memoji from '@/assets/memoji.MOV';
 
 export default function HomePage() {
   return (
@@ -28,9 +29,11 @@ export default function HomePage() {
           playsInline
           className="w-[50vw] h-[50vh] -mt-8 md:w-[32rem] md:h-[32rem] lg:w-[38rem] lg:h-[38rem] object-cover"
         >
-          <source src="/memoji.MOV" type="video/mp4" />
+          <source src={memoji} type="video/mp4" />
           {/* TODO: Add a fallback image */}
-          Your browser does not support the video tag.
+          <p className="text-orange-400">
+            Your browser does not support the video tag.
+          </p>
         </video>
       </div>
     </section>

@@ -1,10 +1,10 @@
-import type { ITimelineEntry } from '@/components/ui/timeline/timeline';
 import {
   BugAntIcon,
   CloudIcon,
   CodeBracketIcon,
   ServerIcon,
 } from '@heroicons/react/24/solid';
+import type { ITimelineEntry } from '../../components/timeline/timeline.tsx';
 
 const experience: ITimelineEntry[] = [
   {

@@ -1,7 +1,5 @@
 // https://ui.aceternity.com/components/timeline
 
-'use client';
-
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { type ITimelineContentProps, TimelineContent } from './TimelineContent';

@@ -1,4 +1,25 @@
-import BentoSection from '@/components/pages/BentoBoxPage/bento-section';
+import BentoSection from './bento-section.tsx';
+
+import linkedinLogo from '@/assets/linkedin.svg';
+import javaScriptLogo from '@/assets/tech_stack_logos/JS.svg';
+import typeScriptLogo from '@/assets/tech_stack_logos/TS.svg';
+import awsLogo from '@/assets/tech_stack_logos/aws.svg';
+import cssLogo from '@/assets/tech_stack_logos/css.svg';
+import dockerLogo from '@/assets/tech_stack_logos/docker.svg';
+import dotnetLogo from '@/assets/tech_stack_logos/dotnet.svg';
+import goLogo from '@/assets/tech_stack_logos/go.svg';
+import htmlLogo from '@/assets/tech_stack_logos/html.svg';
+import mongoDbLogo from '@/assets/tech_stack_logos/mongodb.svg';
+import nodeJsLogo from '@/assets/tech_stack_logos/node_js.svg';
+import pythonLogo from '@/assets/tech_stack_logos/python.svg';
+import reactLogo from '@/assets/tech_stack_logos/react.svg';
+import sqlLogo from '@/assets/tech_stack_logos/sql.svg';
+import swiftLogo from '@/assets/tech_stack_logos/swift.svg';
+import vueLogo from '@/assets/tech_stack_logos/vue.svg';
+
+import catalanFlag from '@/assets/languages/catalan.svg';
+import englishFlag from '@/assets/languages/english.svg';
+import spanishFlag from '@/assets/languages/spanish.svg';
 
 export default function BentoBoxPage() {
   return (
@@ -12,21 +33,21 @@ export default function BentoBoxPage() {
         >
           <ul className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-4 xl:gap-5">
             {[
-              { name: 'JavaScript', icon: '/tech_stack_logos/JS.svg' },
-              { name: 'TypeScript', icon: '/tech_stack_logos/TS.svg' },
-              { name: 'React', icon: '/tech_stack_logos/react.svg' },
-              { name: 'Vue.js', icon: '/tech_stack_logos/vue.svg' },
-              { name: 'Node.js', icon: '/tech_stack_logos/node_js.svg' },
-              { name: 'MongoDB', icon: '/tech_stack_logos/mongodb.svg' },
-              { name: 'AWS', icon: '/tech_stack_logos/aws.svg' },
-              { name: 'Go', icon: '/tech_stack_logos/go.svg' },
-              { name: '.NET', icon: '/tech_stack_logos/dotnet.svg' },
-              { name: 'SQL', icon: '/tech_stack_logos/sql.svg' },
-              { name: 'Python', icon: '/tech_stack_logos/python.svg' },
-              { name: 'Docker', icon: '/tech_stack_logos/docker.svg' },
-              { name: 'Swift', icon: '/tech_stack_logos/swift.svg' },
-              { name: 'HTML', icon: '/tech_stack_logos/html.svg' },
-              { name: 'CSS', icon: '/tech_stack_logos/css.svg' },
+              { name: 'JavaScript', icon: javaScriptLogo },
+              { name: 'TypeScript', icon: typeScriptLogo },
+              { name: 'React', icon: reactLogo },
+              { name: 'Vue.js', icon: vueLogo },
+              { name: 'Node.js', icon: nodeJsLogo },
+              { name: 'MongoDB', icon: mongoDbLogo },
+              { name: 'AWS', icon: awsLogo },
+              { name: 'Go', icon: goLogo },
+              { name: '.NET', icon: dotnetLogo },
+              { name: 'SQL', icon: sqlLogo },
+              { name: 'Python', icon: pythonLogo },
+              { name: 'Docker', icon: dockerLogo },
+              { name: 'Swift', icon: swiftLogo },
+              { name: 'HTML', icon: htmlLogo },
+              { name: 'CSS', icon: cssLogo },
             ].map((tech) => (
               <li
                 key={tech.name}
@@ -101,47 +122,47 @@ export default function BentoBoxPage() {
               {
                 name: 'AWS Certified Cloud Practitioner',
                 institution: 'Amazon Web Services',
-                icon: '/tech_stack_logos/aws.svg',
+                icon: awsLogo,
               },
               {
                 name: 'Go Fundamentals',
                 institution: "O'Reilly",
-                icon: '/tech_stack_logos/go.svg',
+                icon: goLogo,
               },
               {
                 name: 'Docker Fundamentals',
                 institution: "O'Reilly",
-                icon: '/tech_stack_logos/docker.svg',
+                icon: dockerLogo,
               },
               {
                 name: 'React - The Complete Guide',
                 institution: "O'Reilly",
-                icon: '/tech_stack_logos/react.svg',
+                icon: reactLogo,
               },
               {
                 name: 'Python for Data Science & Big Data Essentials',
                 institution: 'LinkedIn',
-                icon: '/tech_stack_logos/python.svg',
+                icon: pythonLogo,
               },
               {
                 name: 'Software Architecture: From Developer to Architect',
                 institution: 'LinkedIn',
-                icon: '/linkedin.svg',
+                icon: linkedinLogo,
               },
               {
                 name: '100 Days of SwiftUI',
                 institution: 'HackingWithSwift',
-                icon: '/tech_stack_logos/swift.svg',
+                icon: swiftLogo,
               },
               {
                 name: 'CS50 Web Development with Python and JavaScript',
                 institution: 'Harvard University',
-                icon: '/tech_stack_logos/JS.svg',
+                icon: javaScriptLogo,
               },
               {
                 name: 'iOS Developer Nanodegree',
                 institution: 'Udacity',
-                icon: '/tech_stack_logos/swift.svg',
+                icon: swiftLogo,
               },
             ].map((tech) => (
               <li
@@ -169,9 +190,9 @@ export default function BentoBoxPage() {
         >
           <ul className="space-y-6 text-lg text-gray-300">
             {[
-              { name: 'English', icon: '/languages/english.svg' },
-              { name: 'Spanish', icon: 'languages/spanish.svg' },
-              { name: 'Catalan', icon: 'languages/catalan.svg' },
+              { name: 'English', icon: englishFlag },
+              { name: 'Spanish', icon: spanishFlag },
+              { name: 'Catalan', icon: catalanFlag },
             ].map((lang) => (
               <li
                 key={lang.name}

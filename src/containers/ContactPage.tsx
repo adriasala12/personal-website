@@ -1,3 +1,5 @@
+import linkedinLogo from '@/assets/linkedin.svg';
+
 export default function ContactPage() {
   return (
     <section className="min-h-[600px] w-full md:px-10">
@@ -17,7 +19,7 @@ export default function ContactPage() {
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-gray-800/80 hover:bg-gray-900 text-gray-300 px-6 py-3 rounded-lg shadow-md transition hover:shadow-lg"
           >
-            <img src="/linkedin.svg" alt="LinkedIn" className="w-8 h-8" />
+            <img src={linkedinLogo} alt="LinkedIn" className="w-8 h-8" />
             <span className="text-lg font-medium">Connect on LinkedIn</span>
           </a>
         </div>
