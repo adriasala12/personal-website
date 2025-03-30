@@ -31,8 +31,8 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages  # Deploy to gh-pages branch
-          folder: dist  # The folder Vite outputs the build to
+      - name: Deploy GitHub Pages site
+        uses: actions/deploy-pages@v4.0.5
+          
+
+          
