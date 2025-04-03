@@ -5,7 +5,6 @@ export default function ContactPage() {
     <section id="contact" className="min-h-[600px] w-full md:px-10">
       <div className="max-w-7xl mx-auto py-8 px-4 md:px-8 lg:px-10">
         <h2 className="text-4xl mt-6 ml-2 font-bold pb-2 bg-gradient-to-r from-violet-500 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent max-w-4xl">
-          {/* TODO: USE FLIP WORDS https://ui.aceternity.com/components/flip-words */}
           Let's make something awesome together!
         </h2>
         <div className="mt-8 flex px-6 md:px-3 flex-col items-start gap-6">

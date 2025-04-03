@@ -33,10 +33,6 @@ export default function HomePage() {
           className="w-[50vw] h-[50vh] -mt-8 md:w-[32rem] md:h-[32rem] lg:w-[38rem] lg:h-[38rem] object-cover"
         >
           <source src={memoji} type="video/mp4" />
-          {/* TODO: Add a fallback image */}
-          <p className="text-orange-400">
-            Your browser does not support the video tag.
-          </p>
         </video>
       </div>
     </section>
