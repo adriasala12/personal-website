@@ -23,7 +23,10 @@ import spanishFlag from '@/assets/languages/spanish.svg';
 
 export default function BentoBoxPage() {
   return (
-    <section className="min-h-screen pt-16 xl:pt-64 px-6 md:px-16 xl:px-10 pb-12 flex">
+    <section
+      id="bento"
+      className="min-h-screen pt-16 xl:pt-64 px-6 md:px-16 xl:px-10 pb-12 flex"
+    >
       <div className="max-w-screen-2xl mx-auto flex-grow grid xl:grid-cols-3 xl:grid-rows-2 gap-6 xl:gap-4">
         {/* Tech Stack */}
         <BentoSection

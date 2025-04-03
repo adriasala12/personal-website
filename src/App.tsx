@@ -3,7 +3,6 @@ import {
   BriefcaseIcon,
   EnvelopeIcon,
   HomeIcon,
-  UserIcon,
   WrenchScrewdriverIcon,
 } from '@heroicons/react/24/outline';
 import { FloatingDock } from './components/floating-dock.tsx';
@@ -15,32 +14,27 @@ import HomePage from './containers/HomePage.tsx';
 const NAVIGATION_ITEMS = [
   {
     title: 'Home',
-    href: '/',
+    id: 'home',
     icon: <HomeIcon />,
   },
   {
-    title: 'About',
-    href: '/about',
-    icon: <UserIcon />,
-  },
-  {
     title: 'Experience',
-    href: '/experience',
+    id: 'experience',
     icon: <BriefcaseIcon />,
   },
   {
-    title: 'Skills',
-    href: '/skills',
+    title: 'Tech Stack',
+    id: 'bento',
     icon: <WrenchScrewdriverIcon />,
   },
   {
     title: 'Education',
-    href: '/education',
+    id: 'bento',
     icon: <AcademicCapIcon />,
   },
   {
     title: 'Contact',
-    href: '/contact',
+    id: 'contact',
     icon: <EnvelopeIcon />,
   },
 ];

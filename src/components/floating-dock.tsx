@@ -17,7 +17,7 @@ export const FloatingDock = ({
   desktopClassName,
   mobileClassName,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: { title: string; icon: React.ReactNode; id: string }[];
   desktopClassName?: string;
   mobileClassName?: string;
 }) => {
@@ -29,11 +29,15 @@ export const FloatingDock = ({
   );
 };
 
+const handleScroll = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+};
+
 const FloatingDockMobile = ({
   items,
   className,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: { title: string; icon: React.ReactNode; id: string }[];
   className?: string;
 }) => {
   const [open, setOpen] = useState(false);
@@ -62,13 +66,14 @@ const FloatingDockMobile = ({
                 }}
                 transition={{ delay: (items.length - 1 - idx) * 0.05 }}
               >
-                <a
-                  href={item.href}
+                <button
+                  type="button"
+                  onClick={() => handleScroll(item.id)}
                   key={item.title}
-                  className="h-10 w-10 rounded-full bg-neutral-900 flex items-center justify-center"
+                  className="h-10 w-10 rounded-full text-white bg-neutral-900 flex items-center justify-center"
                 >
                   <div className="h-4 w-4">{item.icon}</div>
-                </a>
+                </button>
               </motion.div>
             ))}
           </motion.div>
@@ -89,7 +94,7 @@ const FloatingDockDesktop = ({
   items,
   className,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: { title: string; icon: React.ReactNode; id: string }[];
   className?: string;
 }) => {
   const mouseX = useMotionValue(Number.POSITIVE_INFINITY);
@@ -113,12 +118,12 @@ function IconContainer({
   mouseX,
   title,
   icon,
-  href,
+  id,
 }: {
   mouseX: MotionValue;
   title: string;
   icon: React.ReactNode;
-  href: string;
+  id: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -167,7 +172,7 @@ function IconContainer({
   const [hovered, setHovered] = useState(false);
 
   return (
-    <a href={href}>
+    <button type="button" onClick={() => handleScroll(id)}>
       <motion.div
         ref={ref}
         style={{ width, height }}
@@ -194,6 +199,6 @@ function IconContainer({
           {icon}
         </motion.div>
       </motion.div>
-    </a>
+    </button>
   );
 }

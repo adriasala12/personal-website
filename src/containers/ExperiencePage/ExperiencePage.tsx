@@ -3,7 +3,7 @@ import experience from './experience.tsx';
 
 export default function ExperiencePage() {
   return (
-    <section className="min-h-screen">
+    <section id="experience" className="min-h-screen">
       <Timeline data={experience} />
     </section>
   );
