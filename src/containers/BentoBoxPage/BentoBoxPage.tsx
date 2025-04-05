@@ -204,7 +204,7 @@ export default function BentoBoxPage() {
                 <img
                   src={lang.icon}
                   alt={lang.name}
-                  className="w-14 h-14 rounded-full bg-neutral-100 p-0.5"
+                  className="w-14 h-14 rounded-full bg-cover bg-neutral-100 p-0.5"
                 />
                 <span className="text-gray-300 text-xl font-bold">
                   {lang.name}
