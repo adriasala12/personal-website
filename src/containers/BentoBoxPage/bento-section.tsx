@@ -16,7 +16,7 @@ export default function BentoSection({
     <section className="contents">
       <h2
         id={sectionId}
-        className="xl:hidden text-4xl md:text-5xl pb-3 font-bold mt-8 mb-1 bg-gradient-to-r from-violet-500 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent"
+        className="xl:hidden text-4xl md:text-5xl pb-2 font-bold mt-6 mb-1 bg-gradient-to-r from-violet-500 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent"
       >
         {title}
       </h2>

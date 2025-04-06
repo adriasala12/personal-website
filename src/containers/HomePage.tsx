@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <section
       id="home"
-      className="flex flex-col min-h-screen md:flex-row max-w-screen-2xl mx-auto px-10 pt-8 md:pt-16 items-center"
+      className="flex flex-col min-h-screen md:flex-row max-w-screen-2xl mx-auto px-10 pt-7 md:pt-16 items-center"
     >
       <div className="flex flex-[2] items-center justify-center mb-0 md:mb-16 md:pr-24">
         <div>
@@ -30,7 +30,7 @@ export default function HomePage() {
           loop
           muted
           playsInline
-          className="w-[50vw] h-[50vh] -mt-8 md:w-[32rem] md:h-[32rem] lg:w-[38rem] lg:h-[38rem] object-cover"
+          className="w-[50vw] h-[50vh] mb-4 md:mb-0 -mt-8 md:w-[32rem] md:h-[32rem] lg:w-[38rem] lg:h-[38rem] object-cover"
         >
           <source src={memoji} type="video/mp4" />
         </video>

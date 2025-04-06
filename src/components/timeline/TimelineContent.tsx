@@ -20,7 +20,7 @@ export const TimelineContent = ({
     <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-6 bg-gradient-to-r from-violet-500 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent">
       {experience.title}
     </h2>
-    <h3 className="text-lg mb-6 md:mb-10 md:text-3xl font-bold text-neutral-300 dark:text-neutral-400 ">
+    <h3 className="text-3xl md:text-4xl mb-6 md:mb-10 font-bold text-neutral-100 ">
       @ {experience.company}
     </h3>
 
@@ -31,7 +31,10 @@ export const TimelineContent = ({
       </h5>
       <ul className="text-gray-700 dark:text-gray-300 space-y-4">
         {experience.experienceList.map((item, index) => (
-          <li key={`${index}-${experience.title}`} className="flex gap-x-2">
+          <li
+            key={`${index}-${experience.title}`}
+            className="flex text-neutral-300 gap-x-2"
+          >
             <item.icon className="w-5 h-5 flex-shrink-0" />
             {item.content}
           </li>
