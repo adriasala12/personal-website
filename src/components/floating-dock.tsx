@@ -9,7 +9,7 @@ import {
   useSpring,
   useTransform,
 } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { cn } from '../lib/utils';
 
 export const FloatingDock = ({
@@ -42,7 +42,12 @@ const FloatingDockMobile = ({
 }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className={cn('relative block md:hidden', className)}>
+    <div
+      className={cn(
+        'block md:hidden fixed z-10 bottom-0 left-0 mb-4 ml-4',
+        className,
+      )}
+    >
       <AnimatePresence>
         {open && (
           <motion.div
@@ -98,19 +103,49 @@ const FloatingDockDesktop = ({
   className?: string;
 }) => {
   const mouseX = useMotionValue(Number.POSITIVE_INFINITY);
+
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 100); // adjust threshold as needed
+      console.log(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    console.log(isSticky);
+  }, [isSticky]);
+
   return (
-    <motion.div
-      onMouseMove={(e) => mouseX.set(e.pageX)}
-      onMouseLeave={() => mouseX.set(Number.POSITIVE_INFINITY)}
-      className={cn(
-        'mx-auto hidden md:flex h-16 gap-4 items-end  rounded-2xl bg-neutral-900 px-4 pb-3',
-        className,
+    <>
+      {isSticky && (
+        <div
+          className="hidden md:flex fixed top-0 left-0 w-full h-[12vh] z-[99] pointer-events-none backdrop-blur-md bg-gradient-to-b from-neutral-900/0 to-neutral-900/100"
+          style={{
+            WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
+            maskImage: 'linear-gradient(to bottom, black 50%, transparent)',
+          }}
+        />
       )}
-    >
-      {items.map((item) => (
-        <IconContainer mouseX={mouseX} key={item.title} {...item} />
-      ))}
-    </motion.div>
+
+      <motion.div
+        onMouseMove={(e) => mouseX.set(e.pageX)}
+        onMouseLeave={() => mouseX.set(Number.POSITIVE_INFINITY)}
+        className={cn(
+          'hidden md:flex md:fixed h-16 gap-8 z-[100] top-28 left-1/2 transform -translate-x-1/2 items-end rounded-2xl bg-neutral-900 px-4 pb-3 transition-all duration-300',
+          isSticky ? 'top-5' : '',
+          className,
+        )}
+      >
+        {items.map((item) => (
+          <IconContainer mouseX={mouseX} key={item.title} {...item} />
+        ))}
+      </motion.div>
+    </>
   );
 };
 
