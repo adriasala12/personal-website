@@ -41,6 +41,16 @@ const FloatingDockMobile = ({
   className?: string;
 }) => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setOpen(false);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div
       className={cn(
@@ -73,7 +83,10 @@ const FloatingDockMobile = ({
               >
                 <button
                   type="button"
-                  onClick={() => handleScroll(item.id)}
+                  onClick={() => {
+                    setOpen(false);
+                    handleScroll(item.id);
+                  }}
                   key={item.title}
                   className="h-10 w-10 rounded-full text-white bg-neutral-900 flex items-center justify-center"
                 >
@@ -108,17 +121,12 @@ const FloatingDockDesktop = ({
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 100); // adjust threshold as needed
-      console.log(window.scrollY);
+      setIsSticky(window.scrollY > 100);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    console.log(isSticky);
-  }, [isSticky]);
 
   return (
     <>
